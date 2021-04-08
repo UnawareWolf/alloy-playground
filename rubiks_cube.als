@@ -29,8 +29,7 @@ fact {
 
     // if two lines share the same square,
     // they are on the same face and have a different orientation
-    all disj l1, l2: Line | all s: Square |
-        (s in l1.squares and s in l2.squares) =>
+    all disj l1, l2: Line | some l1.squares :> l2.squares =>
             (l1.orientation != l2.orientation and
             one f: Face | (l1 + l2) in f.lines)
     
