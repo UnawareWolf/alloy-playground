@@ -2,8 +2,9 @@ open util/ordering[Cube]
 
 sig Cube {
     faces: some Face,
-    lines: faces one -> some Line,
     neighbours: faces -> faces,
+    lines: faces one -> some Line,
+    // orientation: faces.lines -> one Orientation,
     squares: faces.lines -> Square,
     colours: Square -> one Colour,
     borders: Line.squares -> Line.squares
@@ -19,9 +20,11 @@ sig Cube {
     // if two lines share the same square,
     // they are on the same face and have a different orientation
     // and share at most one square
-    all disj l1, l2: Face.lines | some l1.squares :> l2.squares =>
+    all disj l1, l2: Face.lines | some l1.squares :> l2.squares => (
         one f: faces | (l1 + l2) in f.lines
         and #{l1.squares :> l2.squares} = 1
+        // and l1.orientation != l2.orientation
+        )
     // 
     all f: faces | #{l: f.lines | #{s: l.squares| #s.borders = 2} = 2} = 4
     all s1, s2: Line.squares | s1 in s2.borders =>
@@ -35,6 +38,16 @@ sig Cube {
 sig Face, Line, Square {}
 
 sig Colour {}
+
+enum Orientation { Horizontal, Vertical }
+
+pred isParrallel[c: Cube, f: Face, l: Line] {
+    
+}
+
+pred doTwist[c, c': Cube, f: Face, l: Line, s: Square] {
+
+}
 
 pred twoByTwo {
     all c: Cube {
