@@ -4,8 +4,9 @@ sig Cube {
     faces: some Face,
     lines: faces one -> some Line,
     neighbours: faces -> faces,
-    squares: Line -> Square,
-    colours: Square -> one Colour
+    squares: faces.lines -> Square,
+    colours: Square -> one Colour,
+    borders: Line.squares -> Line.squares
 } {
     // no face is its own neighbour
     all f: faces | no f2: f.neighbours | f2 = f
@@ -21,6 +22,14 @@ sig Cube {
     all disj l1, l2: Face.lines | some l1.squares :> l2.squares =>
         one f: faces | (l1 + l2) in f.lines
         and #{l1.squares :> l2.squares} = 1
+    // 
+    all f: faces | #{l: f.lines | #{s: l.squares| #s.borders = 2} = 2} = 4
+    all s1, s2: Line.squares | s1 in s2.borders =>
+        (s2 in s1.borders
+        and s1 != s2
+        and (#s2.borders > 1 => some s: Line.squares | s in s1.borders and s in s2.borders))
+    all f1, f2: faces | all s: f1.lines.squares | s in f2.lines.squares.borders =>
+        f1 in f2.neighbours
 }
 
 sig Face, Line, Square {}
@@ -36,4 +45,4 @@ pred twoByTwo {
     }
 }
 
-run twoByTwo for 0 but exactly 2 Cube, exactly 6 Face, exactly 24 Line, exactly 24 Square, exactly 6 Colour
+run twoByTwo for 0 but exactly 1 Cube, exactly 6 Face, exactly 24 Line, exactly 24 Square, exactly 6 Colour
