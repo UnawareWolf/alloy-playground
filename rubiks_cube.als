@@ -54,8 +54,8 @@ pred linesRules {
         // they are on the same face and have a different orientation
         // and share at most one square
         all disj l1, l2: c.faces.lines | some l1.squares :> l2.squares =>
-            (l1.orientation != l2.orientation and
-            one f: Face | (l1 + l2) in f.lines) and
+            l1.orientation != l2.orientation and
+            one f: Face | (l1 + l2) in f.lines and
             #{l1.squares :> l2.squares} = 1
 
         // all lines are on one face
@@ -89,9 +89,9 @@ pred doTwist[c, c': Cube, t: Twist] {
     t.face in c'.faces
     // lines that on the face of the line that moves, and pointing in the same direction,
     // remain the same
-    // one f: c.faces | t.line in f.lines and t.line in f.lines =>
-    //     (all l: f.lines | l != t.line and l.orientation = t.line.orientation =>
-    //         l in c'.faces.lines)
+    one f: c.faces | t.line in f.lines and t.line in f.lines =>
+        (all l: f.lines | l != t.line and l.orientation = t.line.orientation =>
+            l in c'.faces.lines)
 }
 
 pred twoByTwo {
