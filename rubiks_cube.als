@@ -30,25 +30,37 @@ sig Square {
 
 sig Colour {}
 
-fact {
-    // all squares are on two lines
-    all s: Square | #squares.s = 2
+// May need to rethink this for cubes > 2 x 2
+enum Direction { Clockwise, Anticlockwise }
 
-    // if two lines share the same square,
-    // they are on the same face and have a different orientation
-    // and share at most one square
-    all disj l1, l2: Line | some l1.squares :> l2.squares =>
+sig Twist {
+    face: one Face,
+    line: one Line,
+    direction: one Direction
+} {
+    // line on face of neighbour
+    line in face.neighbours.lines
+    // line in same plane as face, ie does not have exactly one bordering square
+    // (all or none)
+    #{s: line.squares | s in face.lines.squares} != 1
+}
+
+pred linesRules {
+    all c: Cube {
+        // all squares are on two lines
+        all s: c.faces.lines.squares | #{squares :> c.faces.lines.squares}.s = 2
+
+        // if two lines share the same square,
+        // they are on the same face and have a different orientation
+        // and share at most one square
+        all disj l1, l2: c.faces.lines | some l1.squares :> l2.squares =>
             (l1.orientation != l2.orientation and
             one f: Face | (l1 + l2) in f.lines) and
             #{l1.squares :> l2.squares} = 1
 
-    // all lines are on one face
-    all l: Line | one (lines).l
-
-    // all faces are on one cube
-    all f: Face | one faces.f
-
-    // there are the same number of squares of each colour
+        // all lines are on one face
+        all l: c.faces.lines | one (lines :> c.faces.lines).l
+    }
     all c1, c2 : Colour | #{colour :> c1} = #{colour :> c2}
 }
 
@@ -72,6 +84,16 @@ pred borderingSquaresRule {
         s in s1.borders and s in s2.borders
 }
 
+pred doTwist[c, c': Cube, t: Twist] {
+    t.face in c.faces
+    t.face in c'.faces
+    // lines that on the face of the line that moves, and pointing in the same direction,
+    // remain the same
+    // one f: c.faces | t.line in f.lines and t.line in f.lines =>
+    //     (all l: f.lines | l != t.line and l.orientation = t.line.orientation =>
+    //         l in c'.faces.lines)
+}
+
 pred twoByTwo {
     all f: Face | #f.neighbours = 4 and
         #f.lines = 4
@@ -84,8 +106,10 @@ pred twoByTwo {
 }
 
 pred move [] {
+    linesRules
     borderingSquaresRule
     twoByTwo
+    some c, c': Cube, t: Twist | doTwist[c, c', t]
 }
 
-run move for 0 but exactly 1 Cube, exactly 6 Face, exactly 24 Line, exactly 24 Square, exactly 6 Colour
+run move for 0 but exactly 1 Twist, exactly 2 Cube, exactly 6 Face, exactly 24 Line, exactly 24 Square, exactly 6 Colour

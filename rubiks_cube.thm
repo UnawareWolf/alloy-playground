@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view>
+
+<projection> <type name="Colour"/> <type name="Cube"/> <type name="Orientation"/> <type name="Square"/> </projection>
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Anticlockwise"/>
+   <type name="Clockwise"/>
+   <type name="Colour"/>
+   <type name="Cube"/>
+   <type name="Direction"/>
+   <type name="Horizontal"/>
+   <type name="Int"/>
+   <type name="Orientation"/>
+   <type name="String"/>
+   <type name="Twist"/>
+   <type name="univ"/>
+   <type name="Vertical"/>
+   <type name="open$3/Ord"/>
+   <type name="ordering/Ord"/>
+   <type name="seq/Int"/>
+   <set name="$move_c" type="Cube"/>
+   <set name="$move_c&apos;" type="Cube"/>
+   <set name="$move_t" type="Twist"/>
+   <set name="faces" type="Face"/>
+   <set name="First" type="ordering/Ord"/>
+   <set name="Next" type="ordering/Ord"/>
+   <set name="orientation" type="Line"/>
+   <set name="squares" type="Line"/>
+</node>
+
+<node color="Blue">
+   <type name="Line"/>
+</node>
+
+<node color="Green">
+   <type name="Square"/>
+</node>
+
+<node color="Red">
+   <type name="Face"/>
+</node>
+
+</view>
+
+</alloy>
