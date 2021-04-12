@@ -11,3 +11,9 @@ This is my second attempt which lifts the relations into the higher level cube s
 ## two_cubes.xml
 
 This is the output of rubiks_cube_2.als, which takes ~1hr to run and attempts to solve moving a single line onto a different face, with two cube states.
+
+## TODO
+
+1. Some of the lower rules on the cube may not be necessary and increase run time, like the rule for each face having four edge lines?
+1. A twist can be defined without a line, just a face and a square that is on a neighbouring face and has > 1 bordering squares.
+1. Continue with rules at the bottom of doTwist
