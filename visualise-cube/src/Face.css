@@ -1,0 +1,45 @@
+div.face {
+    display: grid;
+    grid-template-areas:
+        'square0 square1'
+        'square2 sqaure3';
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    /* margin: 8px; */
+    gap: 2px;
+    background-color: grey;
+    border-color: grey;
+    border-style: solid;
+    border-width: 2px;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+div#face0 {
+    grid-area: face0;
+}
+
+div#face1 {
+    grid-area: face1;
+    display: grid;
+}
+
+div#face2 {
+    grid-area: face2;
+    display: grid;
+}
+
+div#face3 {
+    grid-area: face3;
+    display: grid;
+}
+
+div#face4 {
+    grid-area: face4;
+    display: grid;
+}
+
+div#face5 {
+    grid-area: face5;
+    display: grid;
+}

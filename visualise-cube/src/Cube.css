@@ -1,0 +1,12 @@
+div#cube {
+    display: grid;
+    grid-template-areas:
+        'blank face0 blunk'
+        'blank face1 blunk'
+        'face2 face3 face4'
+        'blink face5 blonk';
+    grid-template-columns: 8em 8em 8em;
+    grid-template-rows: 8em 8em 8em 8em;
+    row-gap: 1em;
+    column-gap: 1em;
+}
