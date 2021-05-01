@@ -1,97 +1,44 @@
 import { Cube, getDefaultCube } from './Cube';
 
-const getCubeLabels = (solution: Document): string[] => {
-    let cubeLabels: string[] = [];
-    for (let cubeAtom of Object.values(solution.getElementsByTagName('sig'))) {
-        if (cubeAtom.getAttribute('label') === 'this/Cube') {
-            Array.from(cubeAtom.children).map(cube => (
-                pushIfNotNull(cubeLabels, cube.getAttribute('label'))
+const getSigAtomLabels = (solution: Document, sigLabel: string): string[] => {
+    let sigLabels: string[] = [];
+    for (let sigAtom of Array.from(solution.getElementsByTagName('sig'))) {
+        if (sigAtom.getAttribute('label') === sigLabel) {
+            Array.from(sigAtom.children).map(atom => (
+                pushIfNotNull(sigLabels, atom.getAttribute('label'))
             ));
             break;
         }
     }
-    return cubeLabels;
+    return sigLabels;
 }
 
 const pushIfNotNull = (array: string[], item: string | null) => {
     if (item !== null) array.push(item);
 }
 
-const getAttributeNullChecks = (htmlElement : Element | null, attribute : string): string => {
-    if (htmlElement === null) return '';
-    let value: string | null = htmlElement.getAttribute(attribute);
-    if (value === null) return '';
-    else return value;
-}
-
-const getFaceLabels = (solution: Document, cubeLabel: string): string[] => {
-    let faceLabels: string[] = [];
-    for (let field of Object.values(solution.getElementsByTagName('field'))) {
-        if (field.getAttribute('label') === 'faces') {
-            for (let tuple of Object.values(field.getElementsByTagName('tuple'))) {
-                if (getAttributeNullChecks(tuple.getElementsByTagName('atom').item(0), 'label') === cubeLabel) {
-                    // console.log(Object.values(tuple.getElementsByTagName('atom'))[1]);
-                    faceLabels.push(getAttributeNullChecks(tuple.getElementsByTagName('atom').item(1), 'label'));
-                }
-            }
-            break;
-        }
-    }
-    // console.log(faceLabels);
-    return faceLabels;
-}
-
-const getLineLabels = (solution: Document, cubeLabel: string, faceLabel: string): string[] => {
-    let lineLabels: string[] = [];
-    for (let field of Object.values(solution.getElementsByTagName('field'))) {
-        if (field.getAttribute('label') === 'lines') {
-            for (let tuple of Object.values(field.getElementsByTagName('tuple'))) {
-                if (getAttributeNullChecks(tuple.getElementsByTagName('atom').item(0), 'label') === cubeLabel) {
-                    if (getAttributeNullChecks(tuple.getElementsByTagName('atom').item(1), 'label') === faceLabel) {
-                        lineLabels.push(getAttributeNullChecks(tuple.getElementsByTagName('atom').item(2), 'label'));
+const getFieldTupleAtomLabel = (solution: Document, fieldLabel: string, atomLabels: string[]): string[] => {
+    let labels: string[] = [];
+    for (let field of Array.from(solution.getElementsByTagName('field'))) {
+        if (field.getAttribute('label') === fieldLabel) {
+            for (let tuple of Array.from(field.getElementsByTagName('tuple'))) {
+                let match = true;
+                for (let atomId in atomLabels) {
+                    let tupleItem = tuple.getElementsByTagName('atom').item(+atomId);
+                    if (tupleItem !== null && tupleItem.getAttribute('label') !== atomLabels[atomId]) {
+                        match = false;
+                        break;
                     }
                 }
-            }
-            break;
-        }
-    }
-    return lineLabels;
-}
-
-const getSquareLabels = (solution: Document, cubeLabel: string, lineLabel: string): string[] => {
-    let squareLabels: string[] = [];
-    for (let field of Object.values(solution.getElementsByTagName('field'))) {
-        if (field.getAttribute('label') === 'squares') {
-            for (let tuple of Object.values(field.getElementsByTagName('tuple'))) {
-                if (getAttributeNullChecks(tuple.getElementsByTagName('atom').item(0), 'label') === cubeLabel) {
-                    if (getAttributeNullChecks(tuple.getElementsByTagName('atom').item(1), 'label') === lineLabel) {
-                        squareLabels.push(getAttributeNullChecks(tuple.getElementsByTagName('atom').item(2), 'label'));
-                    }
+                let tupleItem = tuple.getElementsByTagName('atom').item(atomLabels.length);
+                if (match && tupleItem !== null) {
+                    pushIfNotNull(labels, tupleItem.getAttribute('label'));
                 }
             }
-            break;
         }
     }
-    return squareLabels;
+    return labels;
 }
-
-const getColourLabels = (solution: Document, cubeLabel: string, squareLabel: string): string[] => {
-    let colourLabels: string[] = [];
-    for (let field of Object.values(solution.getElementsByTagName('field'))) {
-        if (field.getAttribute('label') === 'colours') {
-            for (let tuple of Object.values(field.getElementsByTagName('tuple'))) {
-                if (getAttributeNullChecks(tuple.getElementsByTagName('atom').item(0), 'label') === cubeLabel) {
-                    if (getAttributeNullChecks(tuple.getElementsByTagName('atom').item(1), 'label') === squareLabel) {
-                        colourLabels.push(getAttributeNullChecks(tuple.getElementsByTagName('atom').item(2), 'label'));
-                    }
-                }
-            }
-            break;
-        }
-    }
-    return colourLabels;
-}
-
 
 const getAlloyId = (label: string): number => {
     return + label.split('$')[1];
@@ -102,24 +49,22 @@ export const getCubeSolution = (solnString: string): Cube[] => {
     let parser = new DOMParser();
     const solutionXML = parser.parseFromString(solnString, 'text/xml');
     let cubes: Cube[] = [getDefaultCube()];
-    for (let cubeLabel of getCubeLabels(solutionXML)) {
+    for (let cubeLabel of getSigAtomLabels(solutionXML, 'this/Cube')) {
         cubes[getAlloyId(cubeLabel)] = getDefaultCube();
-        for (let faceLabel of getFaceLabels(solutionXML, cubeLabel)) {
+        for (let faceLabel of getFieldTupleAtomLabel(solutionXML, 'faces', [cubeLabel])) {
             let squareLabels = new Set<string>();
-            for (let lineLabel of getLineLabels(solutionXML, cubeLabel, faceLabel)) {
-                for (let squareLabel of getSquareLabels(solutionXML, cubeLabel, lineLabel)) {
+            for (let lineLabel of getFieldTupleAtomLabel(solutionXML, 'lines', [cubeLabel, faceLabel])) {
+                for (let squareLabel of getFieldTupleAtomLabel(solutionXML, 'squares', [cubeLabel, lineLabel])) {
                     squareLabels.add(squareLabel);
                 }
             }
             let squareId = 0;
             for (let squareLabel of Array.from(squareLabels)) {
-                let colourId: number = getAlloyId(getColourLabels(solutionXML, cubeLabel, squareLabel)[0]);
-                // console.log(`face ${faceLabel} square ${squareId} colour ${colourId}`);
+                let colourId: number = getAlloyId(getFieldTupleAtomLabel(solutionXML, 'colours', [cubeLabel, squareLabel])[0]);
                 cubes[getAlloyId(cubeLabel)].faces[getAlloyId(faceLabel)].squares[squareId].colour = colourId;
                 squareId++;
             }
         }
     }
     return cubes;
-    // return [getDefaultCube()];
 }
