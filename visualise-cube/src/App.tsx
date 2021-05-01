@@ -18,6 +18,13 @@ const App: FC = () => {
    return (
       <div className="App">
          {loading && 'parsing solution'}
+         {!loading && 
+            <div id='selectors'>
+               {<button className={selectedCube !== 0 ? '' : 'hide'} onClick={() => setSelectedCube(selectedCube - 1)}>{'<'}</button>}
+               <span id='selection'>{selectedCube}</span>
+               {<button className={selectedCube < cubes.length - 1 ? '' : 'hide'} onClick={() => setSelectedCube(selectedCube + 1)}>{'>'}</button>}
+            </div>
+         }
          {!loading && <CubeFC cube={cubes[selectedCube]} />}
       </div>
    );

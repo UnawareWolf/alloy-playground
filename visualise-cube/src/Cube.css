@@ -1,3 +1,8 @@
+div#cubeWrapper {
+    display: grid;
+    place-items: center;
+}
+
 div#cube {
     display: grid;
     grid-template-areas:

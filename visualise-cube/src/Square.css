@@ -1,9 +1,3 @@
-div.square {
-    /* width: 100%; */
-    /* height: calc((8em / 2) - 3px); */
-    /* resize: vertical; */
-}
-
 div.square.c0 {
     background-color: white;
 }
@@ -25,5 +19,5 @@ div.square.c4 {
 }
 
 div.square.c5 {
-    background-color: black;
+    background-color: orange;
 }

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Face, FaceFC } from './Face';
-import { Colour, Square } from './Square';
+import { Square } from './Square';
 import './Cube.css';
 
 export interface Cube {
@@ -24,7 +24,7 @@ export const getDefaultCube = (): Cube => {
                y: y,
                z: 0,
                id: squareCount,
-               colour: Colour.Yellow
+               colour: i
             });
             squareCount += 1;
          }
@@ -42,10 +42,12 @@ export const CubeFC: FC<CubeProps> = ({ cube }) => {
    if (cube == null) return (<div></div>);
 
    return (
-      <div id='cube'>
-         {cube.faces.map((face) => (
-            <FaceFC face={face} />
-         ))}
+      <div id='cubeWrapper'>
+         <div id='cube'>
+            {cube.faces.map((face) => (
+               <FaceFC face={face} />
+            ))}
+         </div>
       </div>
    );
 }

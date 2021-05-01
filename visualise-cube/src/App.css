@@ -1,3 +1,17 @@
 div.App {
     margin: 1em;
 }
+
+div#selectors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span#selection {
+    padding: 1em;
+}
+
+button.hide {
+    visibility: hidden;
+}
