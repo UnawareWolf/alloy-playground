@@ -30,7 +30,7 @@ const getFieldTupleAtomLabel = (solution: Document, fieldLabel: string, atomLabe
                         break;
                     }
                 }
-                let tupleItem = tuple.getElementsByTagName('atom').item(atomLabels.length);
+                let tupleItem = tuple.getElementsByTagName('atom').item(tuple.getElementsByTagName('atom').length - 1);
                 if (match && tupleItem !== null) {
                     pushIfNotNull(labels, tupleItem.getAttribute('label'));
                 }
@@ -41,7 +41,7 @@ const getFieldTupleAtomLabel = (solution: Document, fieldLabel: string, atomLabe
 }
 
 const getAlloyId = (label: string): number => {
-    return + label.split('$')[1];
+    return +label.split('$')[1];
 }
 
 
@@ -51,19 +51,22 @@ export const getCubeSolution = (solnString: string): Cube[] => {
     let cubes: Cube[] = [getDefaultCube()];
     for (let cubeLabel of getSigAtomLabels(solutionXML, 'this/Cube')) {
         cubes[getAlloyId(cubeLabel)] = getDefaultCube();
+        let faceIdx = 0;
         for (let faceLabel of getFieldTupleAtomLabel(solutionXML, 'faces', [cubeLabel])) {
             let squareLabels = new Set<string>();
-            for (let lineLabel of getFieldTupleAtomLabel(solutionXML, 'lines', [cubeLabel, faceLabel])) {
-                for (let squareLabel of getFieldTupleAtomLabel(solutionXML, 'squares', [cubeLabel, lineLabel])) {
+            for (let lineLabel of getFieldTupleAtomLabel(solutionXML, 'lines', [faceLabel])) {
+                for (let squareLabel of getFieldTupleAtomLabel(solutionXML, 'squares', [lineLabel])) {
                     squareLabels.add(squareLabel);
                 }
             }
             let squareId = 0;
             for (let squareLabel of Array.from(squareLabels)) {
                 let colourId: number = getAlloyId(getFieldTupleAtomLabel(solutionXML, 'colours', [cubeLabel, squareLabel])[0]);
-                cubes[getAlloyId(cubeLabel)].faces[getAlloyId(faceLabel)].squares[squareId].colour = colourId;
+                // face index should be seq int atom not the alloy id
+                cubes[getAlloyId(cubeLabel)].faces[faceIdx].squares[squareId].colour = colourId;
                 squareId++;
             }
+            faceIdx++;
         }
     }
     return cubes;

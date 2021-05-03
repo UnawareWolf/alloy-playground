@@ -9,7 +9,7 @@ const App: FC = () => {
    const [selectedCube, setSelectedCube] = useState<number>(0);
 
    useEffect(() => {
-      fetch('/two_cubes.xml').then(r => r.text()).then(text => {
+      fetch('/solution.xml').then(r => r.text()).then(text => {
          setCubes(getCubeSolution(text));
          setLoading(false);
       });

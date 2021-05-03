@@ -14,9 +14,12 @@ span#selection {
 }
 
 button {
-    background-color: lightgrey;
+    background-color: rgba(211, 211, 211, 0.5);
     border: none;
     color: #1D2433;
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
 }
 
 button.hide {

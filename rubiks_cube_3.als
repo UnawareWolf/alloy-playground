@@ -100,7 +100,7 @@ pred solve[c: Cube] {
     twoByTwo
     // some c1: Cube | c1.colours != c.colours
     some c1: Cube, faceIdx: Int, s: Square | doTwist[c1, c, faceIdx, s]
-    // solved[c]
+    solved[c]
 }
 
 run solve for 6 but exactly 2 Cube, exactly 6 Face, exactly 6 Colour, exactly 24 Line, exactly 24 Square
