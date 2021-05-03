@@ -1,6 +1,6 @@
 <alloy builddate="2019-09-26T02:24:04.811Z">
 
-<instance bitwidth="4" maxseq="6" command="Run twoByTwo for 6 but exactly 2 Cube, exactly 6 Colour, exactly 24 Line, exactly 24 Square" filename="c:\Users\hal\Documents\git\alloy-playground\rubiks_cube_3.als">
+<instance bitwidth="4" maxseq="6" command="Run twoByTwo for 6 but exactly 1 Cube, exactly 6 Face, exactly 6 Colour, exactly 24 Line, exactly 24 Square" filename="c:\Users\hal\Documents\git\alloy-playground\rubiks_cube_3.als">
 
 <sig label="seq/Int" ID="0" parentID="1" builtin="yes">
 </sig>
@@ -13,86 +13,43 @@
 
 <sig label="this/Cube" ID="4" parentID="2">
    <atom label="Cube$0"/>
-   <atom label="Cube$1"/>
 </sig>
 
 <field label="faces" ID="5" parentID="4">
-   <tuple> <atom label="Cube$0"/> <atom label="0"/> <atom label="Face$1"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="1"/> <atom label="Face$5"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="2"/> <atom label="Face$3"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="3"/> <atom label="Face$2"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="4"/> <atom label="Face$4"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="5"/> <atom label="Face$0"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="0"/> <atom label="Face$1"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="1"/> <atom label="Face$5"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="2"/> <atom label="Face$3"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="3"/> <atom label="Face$2"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="4"/> <atom label="Face$4"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="5"/> <atom label="Face$0"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="0"/> <atom label="Face$0"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="1"/> <atom label="Face$4"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="2"/> <atom label="Face$1"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="3"/> <atom label="Face$5"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="4"/> <atom label="Face$2"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="5"/> <atom label="Face$3"/> </tuple>
    <types> <type ID="4"/> <type ID="0"/> <type ID="6"/> </types>
 </field>
 
 <field label="colours" ID="7" parentID="4">
    <tuple> <atom label="Cube$0"/> <atom label="Square$0"/> <atom label="Colour$5"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$1"/> <atom label="Colour$4"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$2"/> <atom label="Colour$4"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$2"/> <atom label="Colour$3"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$3"/> <atom label="Colour$4"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$4"/> <atom label="Colour$4"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$5"/> <atom label="Colour$5"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$6"/> <atom label="Colour$4"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$7"/> <atom label="Colour$3"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$8"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$9"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$10"/> <atom label="Colour$3"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$4"/> <atom label="Colour$2"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$5"/> <atom label="Colour$1"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$6"/> <atom label="Colour$0"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$7"/> <atom label="Colour$2"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$8"/> <atom label="Colour$0"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$9"/> <atom label="Colour$4"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$10"/> <atom label="Colour$5"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$11"/> <atom label="Colour$4"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$12"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$13"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$14"/> <atom label="Colour$0"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$13"/> <atom label="Colour$3"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$14"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$15"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$16"/> <atom label="Colour$2"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$15"/> <atom label="Colour$3"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$16"/> <atom label="Colour$3"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$17"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$18"/> <atom label="Colour$0"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$18"/> <atom label="Colour$3"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$18"/> <atom label="Colour$5"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$19"/> <atom label="Colour$0"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$19"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$19"/> <atom label="Colour$3"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$19"/> <atom label="Colour$5"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$20"/> <atom label="Colour$0"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$20"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$20"/> <atom label="Colour$5"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$21"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$22"/> <atom label="Colour$0"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$21"/> <atom label="Colour$5"/> </tuple>
    <tuple> <atom label="Cube$0"/> <atom label="Square$22"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$22"/> <atom label="Colour$3"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$22"/> <atom label="Colour$5"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$23"/> <atom label="Colour$0"/> </tuple>
-   <tuple> <atom label="Cube$0"/> <atom label="Square$23"/> <atom label="Colour$3"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$0"/> <atom label="Colour$4"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$1"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$2"/> <atom label="Colour$4"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$3"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$4"/> <atom label="Colour$4"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$5"/> <atom label="Colour$3"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$6"/> <atom label="Colour$5"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$7"/> <atom label="Colour$5"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$8"/> <atom label="Colour$5"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$9"/> <atom label="Colour$4"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$10"/> <atom label="Colour$3"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$11"/> <atom label="Colour$3"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$12"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$13"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$14"/> <atom label="Colour$5"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$15"/> <atom label="Colour$0"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$16"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$17"/> <atom label="Colour$2"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$18"/> <atom label="Colour$0"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$19"/> <atom label="Colour$0"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$20"/> <atom label="Colour$0"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$21"/> <atom label="Colour$3"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$22"/> <atom label="Colour$1"/> </tuple>
-   <tuple> <atom label="Cube$1"/> <atom label="Square$23"/> <atom label="Colour$1"/> </tuple>
+   <tuple> <atom label="Cube$0"/> <atom label="Square$23"/> <atom label="Colour$2"/> </tuple>
    <types> <type ID="4"/> <type ID="8"/> <type ID="9"/> </types>
 </field>
 
@@ -106,58 +63,58 @@
 </sig>
 
 <field label="lines" ID="10" parentID="6">
-   <tuple> <atom label="Face$0"/> <atom label="0"/> <atom label="Line$23"/> </tuple>
-   <tuple> <atom label="Face$0"/> <atom label="1"/> <atom label="Line$22"/> </tuple>
-   <tuple> <atom label="Face$0"/> <atom label="2"/> <atom label="Line$21"/> </tuple>
-   <tuple> <atom label="Face$0"/> <atom label="3"/> <atom label="Line$20"/> </tuple>
-   <tuple> <atom label="Face$1"/> <atom label="0"/> <atom label="Line$19"/> </tuple>
-   <tuple> <atom label="Face$1"/> <atom label="1"/> <atom label="Line$18"/> </tuple>
-   <tuple> <atom label="Face$1"/> <atom label="2"/> <atom label="Line$17"/> </tuple>
-   <tuple> <atom label="Face$1"/> <atom label="3"/> <atom label="Line$16"/> </tuple>
-   <tuple> <atom label="Face$2"/> <atom label="0"/> <atom label="Line$15"/> </tuple>
-   <tuple> <atom label="Face$2"/> <atom label="1"/> <atom label="Line$14"/> </tuple>
-   <tuple> <atom label="Face$2"/> <atom label="2"/> <atom label="Line$13"/> </tuple>
-   <tuple> <atom label="Face$2"/> <atom label="3"/> <atom label="Line$12"/> </tuple>
-   <tuple> <atom label="Face$3"/> <atom label="0"/> <atom label="Line$21"/> </tuple>
-   <tuple> <atom label="Face$3"/> <atom label="1"/> <atom label="Line$11"/> </tuple>
-   <tuple> <atom label="Face$3"/> <atom label="2"/> <atom label="Line$10"/> </tuple>
-   <tuple> <atom label="Face$3"/> <atom label="3"/> <atom label="Line$9"/> </tuple>
-   <tuple> <atom label="Face$4"/> <atom label="0"/> <atom label="Line$8"/> </tuple>
-   <tuple> <atom label="Face$4"/> <atom label="1"/> <atom label="Line$7"/> </tuple>
-   <tuple> <atom label="Face$4"/> <atom label="2"/> <atom label="Line$6"/> </tuple>
-   <tuple> <atom label="Face$4"/> <atom label="3"/> <atom label="Line$5"/> </tuple>
-   <tuple> <atom label="Face$5"/> <atom label="0"/> <atom label="Line$8"/> </tuple>
-   <tuple> <atom label="Face$5"/> <atom label="1"/> <atom label="Line$18"/> </tuple>
-   <tuple> <atom label="Face$5"/> <atom label="2"/> <atom label="Line$4"/> </tuple>
-   <tuple> <atom label="Face$5"/> <atom label="3"/> <atom label="Line$19"/> </tuple>
-   <types> <type ID="6"/> <type ID="0"/> <type ID="11"/> </types>
+   <tuple> <atom label="Face$0"/> <atom label="Line$20"/> </tuple>
+   <tuple> <atom label="Face$0"/> <atom label="Line$21"/> </tuple>
+   <tuple> <atom label="Face$0"/> <atom label="Line$22"/> </tuple>
+   <tuple> <atom label="Face$0"/> <atom label="Line$23"/> </tuple>
+   <tuple> <atom label="Face$1"/> <atom label="Line$16"/> </tuple>
+   <tuple> <atom label="Face$1"/> <atom label="Line$17"/> </tuple>
+   <tuple> <atom label="Face$1"/> <atom label="Line$18"/> </tuple>
+   <tuple> <atom label="Face$1"/> <atom label="Line$19"/> </tuple>
+   <tuple> <atom label="Face$2"/> <atom label="Line$12"/> </tuple>
+   <tuple> <atom label="Face$2"/> <atom label="Line$13"/> </tuple>
+   <tuple> <atom label="Face$2"/> <atom label="Line$14"/> </tuple>
+   <tuple> <atom label="Face$2"/> <atom label="Line$15"/> </tuple>
+   <tuple> <atom label="Face$3"/> <atom label="Line$8"/> </tuple>
+   <tuple> <atom label="Face$3"/> <atom label="Line$9"/> </tuple>
+   <tuple> <atom label="Face$3"/> <atom label="Line$10"/> </tuple>
+   <tuple> <atom label="Face$3"/> <atom label="Line$11"/> </tuple>
+   <tuple> <atom label="Face$4"/> <atom label="Line$4"/> </tuple>
+   <tuple> <atom label="Face$4"/> <atom label="Line$5"/> </tuple>
+   <tuple> <atom label="Face$4"/> <atom label="Line$6"/> </tuple>
+   <tuple> <atom label="Face$4"/> <atom label="Line$7"/> </tuple>
+   <tuple> <atom label="Face$5"/> <atom label="Line$0"/> </tuple>
+   <tuple> <atom label="Face$5"/> <atom label="Line$1"/> </tuple>
+   <tuple> <atom label="Face$5"/> <atom label="Line$2"/> </tuple>
+   <tuple> <atom label="Face$5"/> <atom label="Line$3"/> </tuple>
+   <types> <type ID="6"/> <type ID="11"/> </types>
 </field>
 
 <field label="neighbours" ID="12" parentID="6">
+   <tuple> <atom label="Face$0"/> <atom label="Face$1"/> </tuple>
    <tuple> <atom label="Face$0"/> <atom label="Face$2"/> </tuple>
-   <tuple> <atom label="Face$0"/> <atom label="Face$3"/> </tuple>
    <tuple> <atom label="Face$0"/> <atom label="Face$4"/> </tuple>
    <tuple> <atom label="Face$0"/> <atom label="Face$5"/> </tuple>
+   <tuple> <atom label="Face$1"/> <atom label="Face$0"/> </tuple>
    <tuple> <atom label="Face$1"/> <atom label="Face$2"/> </tuple>
    <tuple> <atom label="Face$1"/> <atom label="Face$3"/> </tuple>
    <tuple> <atom label="Face$1"/> <atom label="Face$4"/> </tuple>
-   <tuple> <atom label="Face$1"/> <atom label="Face$5"/> </tuple>
    <tuple> <atom label="Face$2"/> <atom label="Face$0"/> </tuple>
    <tuple> <atom label="Face$2"/> <atom label="Face$1"/> </tuple>
-   <tuple> <atom label="Face$2"/> <atom label="Face$4"/> </tuple>
+   <tuple> <atom label="Face$2"/> <atom label="Face$3"/> </tuple>
    <tuple> <atom label="Face$2"/> <atom label="Face$5"/> </tuple>
-   <tuple> <atom label="Face$3"/> <atom label="Face$0"/> </tuple>
    <tuple> <atom label="Face$3"/> <atom label="Face$1"/> </tuple>
+   <tuple> <atom label="Face$3"/> <atom label="Face$2"/> </tuple>
    <tuple> <atom label="Face$3"/> <atom label="Face$4"/> </tuple>
    <tuple> <atom label="Face$3"/> <atom label="Face$5"/> </tuple>
    <tuple> <atom label="Face$4"/> <atom label="Face$0"/> </tuple>
    <tuple> <atom label="Face$4"/> <atom label="Face$1"/> </tuple>
-   <tuple> <atom label="Face$4"/> <atom label="Face$2"/> </tuple>
    <tuple> <atom label="Face$4"/> <atom label="Face$3"/> </tuple>
+   <tuple> <atom label="Face$4"/> <atom label="Face$5"/> </tuple>
    <tuple> <atom label="Face$5"/> <atom label="Face$0"/> </tuple>
-   <tuple> <atom label="Face$5"/> <atom label="Face$1"/> </tuple>
    <tuple> <atom label="Face$5"/> <atom label="Face$2"/> </tuple>
    <tuple> <atom label="Face$5"/> <atom label="Face$3"/> </tuple>
+   <tuple> <atom label="Face$5"/> <atom label="Face$4"/> </tuple>
    <types> <type ID="6"/> <type ID="6"/> </types>
 </field>
 
@@ -189,55 +146,83 @@
 </sig>
 
 <field label="squares" ID="13" parentID="11">
-   <tuple> <atom label="Line$0"/> <atom label="0"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Line$0"/> <atom label="1"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Line$1"/> <atom label="0"/> <atom label="Square$1"/> </tuple>
-   <tuple> <atom label="Line$1"/> <atom label="1"/> <atom label="Square$1"/> </tuple>
-   <tuple> <atom label="Line$2"/> <atom label="0"/> <atom label="Square$22"/> </tuple>
-   <tuple> <atom label="Line$2"/> <atom label="1"/> <atom label="Square$22"/> </tuple>
-   <tuple> <atom label="Line$3"/> <atom label="0"/> <atom label="Square$7"/> </tuple>
-   <tuple> <atom label="Line$3"/> <atom label="1"/> <atom label="Square$7"/> </tuple>
-   <tuple> <atom label="Line$4"/> <atom label="0"/> <atom label="Square$14"/> </tuple>
-   <tuple> <atom label="Line$4"/> <atom label="1"/> <atom label="Square$19"/> </tuple>
-   <tuple> <atom label="Line$5"/> <atom label="0"/> <atom label="Square$2"/> </tuple>
-   <tuple> <atom label="Line$5"/> <atom label="1"/> <atom label="Square$2"/> </tuple>
-   <tuple> <atom label="Line$6"/> <atom label="0"/> <atom label="Square$11"/> </tuple>
-   <tuple> <atom label="Line$6"/> <atom label="1"/> <atom label="Square$11"/> </tuple>
-   <tuple> <atom label="Line$7"/> <atom label="0"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Line$7"/> <atom label="1"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Line$8"/> <atom label="0"/> <atom label="Square$14"/> </tuple>
-   <tuple> <atom label="Line$8"/> <atom label="1"/> <atom label="Square$4"/> </tuple>
-   <tuple> <atom label="Line$9"/> <atom label="0"/> <atom label="Square$0"/> </tuple>
-   <tuple> <atom label="Line$9"/> <atom label="1"/> <atom label="Square$12"/> </tuple>
-   <tuple> <atom label="Line$10"/> <atom label="0"/> <atom label="Square$6"/> </tuple>
-   <tuple> <atom label="Line$10"/> <atom label="1"/> <atom label="Square$6"/> </tuple>
-   <tuple> <atom label="Line$11"/> <atom label="0"/> <atom label="Square$5"/> </tuple>
-   <tuple> <atom label="Line$11"/> <atom label="1"/> <atom label="Square$0"/> </tuple>
-   <tuple> <atom label="Line$12"/> <atom label="0"/> <atom label="Square$8"/> </tuple>
-   <tuple> <atom label="Line$12"/> <atom label="1"/> <atom label="Square$8"/> </tuple>
-   <tuple> <atom label="Line$13"/> <atom label="0"/> <atom label="Square$21"/> </tuple>
-   <tuple> <atom label="Line$13"/> <atom label="1"/> <atom label="Square$21"/> </tuple>
-   <tuple> <atom label="Line$14"/> <atom label="0"/> <atom label="Square$23"/> </tuple>
-   <tuple> <atom label="Line$14"/> <atom label="1"/> <atom label="Square$23"/> </tuple>
-   <tuple> <atom label="Line$15"/> <atom label="0"/> <atom label="Square$13"/> </tuple>
-   <tuple> <atom label="Line$15"/> <atom label="1"/> <atom label="Square$13"/> </tuple>
-   <tuple> <atom label="Line$16"/> <atom label="0"/> <atom label="Square$18"/> </tuple>
-   <tuple> <atom label="Line$16"/> <atom label="1"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Line$17"/> <atom label="0"/> <atom label="Square$16"/> </tuple>
-   <tuple> <atom label="Line$17"/> <atom label="1"/> <atom label="Square$16"/> </tuple>
-   <tuple> <atom label="Line$18"/> <atom label="0"/> <atom label="Square$18"/> </tuple>
-   <tuple> <atom label="Line$18"/> <atom label="1"/> <atom label="Square$4"/> </tuple>
-   <tuple> <atom label="Line$19"/> <atom label="0"/> <atom label="Square$19"/> </tuple>
-   <tuple> <atom label="Line$19"/> <atom label="1"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Line$20"/> <atom label="0"/> <atom label="Square$17"/> </tuple>
-   <tuple> <atom label="Line$20"/> <atom label="1"/> <atom label="Square$17"/> </tuple>
-   <tuple> <atom label="Line$21"/> <atom label="0"/> <atom label="Square$5"/> </tuple>
-   <tuple> <atom label="Line$21"/> <atom label="1"/> <atom label="Square$12"/> </tuple>
-   <tuple> <atom label="Line$22"/> <atom label="0"/> <atom label="Square$15"/> </tuple>
-   <tuple> <atom label="Line$22"/> <atom label="1"/> <atom label="Square$15"/> </tuple>
-   <tuple> <atom label="Line$23"/> <atom label="0"/> <atom label="Square$3"/> </tuple>
-   <tuple> <atom label="Line$23"/> <atom label="1"/> <atom label="Square$3"/> </tuple>
-   <types> <type ID="11"/> <type ID="0"/> <type ID="8"/> </types>
+   <tuple> <atom label="Line$0"/> <atom label="Square$22"/> </tuple>
+   <tuple> <atom label="Line$0"/> <atom label="Square$23"/> </tuple>
+   <tuple> <atom label="Line$1"/> <atom label="Square$21"/> </tuple>
+   <tuple> <atom label="Line$1"/> <atom label="Square$23"/> </tuple>
+   <tuple> <atom label="Line$2"/> <atom label="Square$20"/> </tuple>
+   <tuple> <atom label="Line$2"/> <atom label="Square$22"/> </tuple>
+   <tuple> <atom label="Line$3"/> <atom label="Square$20"/> </tuple>
+   <tuple> <atom label="Line$3"/> <atom label="Square$21"/> </tuple>
+   <tuple> <atom label="Line$4"/> <atom label="Square$18"/> </tuple>
+   <tuple> <atom label="Line$4"/> <atom label="Square$19"/> </tuple>
+   <tuple> <atom label="Line$5"/> <atom label="Square$17"/> </tuple>
+   <tuple> <atom label="Line$5"/> <atom label="Square$19"/> </tuple>
+   <tuple> <atom label="Line$6"/> <atom label="Square$16"/> </tuple>
+   <tuple> <atom label="Line$6"/> <atom label="Square$18"/> </tuple>
+   <tuple> <atom label="Line$7"/> <atom label="Square$16"/> </tuple>
+   <tuple> <atom label="Line$7"/> <atom label="Square$17"/> </tuple>
+   <tuple> <atom label="Line$8"/> <atom label="Square$14"/> </tuple>
+   <tuple> <atom label="Line$8"/> <atom label="Square$15"/> </tuple>
+   <tuple> <atom label="Line$9"/> <atom label="Square$13"/> </tuple>
+   <tuple> <atom label="Line$9"/> <atom label="Square$15"/> </tuple>
+   <tuple> <atom label="Line$10"/> <atom label="Square$12"/> </tuple>
+   <tuple> <atom label="Line$10"/> <atom label="Square$14"/> </tuple>
+   <tuple> <atom label="Line$11"/> <atom label="Square$12"/> </tuple>
+   <tuple> <atom label="Line$11"/> <atom label="Square$13"/> </tuple>
+   <tuple> <atom label="Line$12"/> <atom label="Square$10"/> </tuple>
+   <tuple> <atom label="Line$12"/> <atom label="Square$11"/> </tuple>
+   <tuple> <atom label="Line$13"/> <atom label="Square$10"/> </tuple>
+   <tuple> <atom label="Line$13"/> <atom label="Square$11"/> </tuple>
+   <tuple> <atom label="Line$14"/> <atom label="Square$8"/> </tuple>
+   <tuple> <atom label="Line$14"/> <atom label="Square$9"/> </tuple>
+   <tuple> <atom label="Line$15"/> <atom label="Square$8"/> </tuple>
+   <tuple> <atom label="Line$15"/> <atom label="Square$9"/> </tuple>
+   <tuple> <atom label="Line$16"/> <atom label="Square$6"/> </tuple>
+   <tuple> <atom label="Line$16"/> <atom label="Square$7"/> </tuple>
+   <tuple> <atom label="Line$17"/> <atom label="Square$5"/> </tuple>
+   <tuple> <atom label="Line$17"/> <atom label="Square$7"/> </tuple>
+   <tuple> <atom label="Line$18"/> <atom label="Square$4"/> </tuple>
+   <tuple> <atom label="Line$18"/> <atom label="Square$6"/> </tuple>
+   <tuple> <atom label="Line$19"/> <atom label="Square$4"/> </tuple>
+   <tuple> <atom label="Line$19"/> <atom label="Square$5"/> </tuple>
+   <tuple> <atom label="Line$20"/> <atom label="Square$2"/> </tuple>
+   <tuple> <atom label="Line$20"/> <atom label="Square$3"/> </tuple>
+   <tuple> <atom label="Line$21"/> <atom label="Square$2"/> </tuple>
+   <tuple> <atom label="Line$21"/> <atom label="Square$3"/> </tuple>
+   <tuple> <atom label="Line$22"/> <atom label="Square$0"/> </tuple>
+   <tuple> <atom label="Line$22"/> <atom label="Square$1"/> </tuple>
+   <tuple> <atom label="Line$23"/> <atom label="Square$0"/> </tuple>
+   <tuple> <atom label="Line$23"/> <atom label="Square$1"/> </tuple>
+   <types> <type ID="11"/> <type ID="8"/> </types>
+</field>
+
+<field label="edge" ID="14" parentID="11">
+   <tuple> <atom label="Line$0"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$1"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$2"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$3"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$4"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$5"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$6"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$7"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$8"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$9"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$10"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$11"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$12"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$13"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$14"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$15"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$16"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$17"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$18"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$19"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$20"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$21"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$22"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Line$23"/> <atom label="boolean/True$0"/> </tuple>
+   <types> <type ID="11"/> <type ID="15"/> </types>
 </field>
 
 <sig label="this/Square" ID="8" parentID="2">
@@ -267,116 +252,84 @@
    <atom label="Square$23"/>
 </sig>
 
-<field label="borders" ID="14" parentID="8">
-   <tuple> <atom label="Square$0"/> <atom label="Square$3"/> </tuple>
+<field label="borders" ID="16" parentID="8">
    <tuple> <atom label="Square$0"/> <atom label="Square$4"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$5"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$6"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$7"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$8"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$11"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$12"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$13"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$14"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$15"/> </tuple>
    <tuple> <atom label="Square$0"/> <atom label="Square$16"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$17"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$18"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$19"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$21"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$22"/> </tuple>
-   <tuple> <atom label="Square$0"/> <atom label="Square$23"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$0"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$14"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$15"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$16"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$17"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$18"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$19"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$21"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$22"/> </tuple>
-   <tuple> <atom label="Square$1"/> <atom label="Square$23"/> </tuple>
-   <tuple> <atom label="Square$2"/> <atom label="Square$0"/> </tuple>
-   <tuple> <atom label="Square$2"/> <atom label="Square$1"/> </tuple>
-   <tuple> <atom label="Square$2"/> <atom label="Square$13"/> </tuple>
+   <tuple> <atom label="Square$1"/> <atom label="Square$6"/> </tuple>
+   <tuple> <atom label="Square$1"/> <atom label="Square$11"/> </tuple>
    <tuple> <atom label="Square$2"/> <atom label="Square$18"/> </tuple>
-   <tuple> <atom label="Square$2"/> <atom label="Square$19"/> </tuple>
-   <tuple> <atom label="Square$2"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Square$2"/> <atom label="Square$21"/> </tuple>
    <tuple> <atom label="Square$2"/> <atom label="Square$22"/> </tuple>
-   <tuple> <atom label="Square$2"/> <atom label="Square$23"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$5"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$6"/> </tuple>
    <tuple> <atom label="Square$3"/> <atom label="Square$7"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$8"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$11"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$12"/> </tuple>
    <tuple> <atom label="Square$3"/> <atom label="Square$17"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$21"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$22"/> </tuple>
-   <tuple> <atom label="Square$3"/> <atom label="Square$23"/> </tuple>
-   <tuple> <atom label="Square$4"/> <atom label="Square$1"/> </tuple>
-   <tuple> <atom label="Square$4"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Square$5"/> <atom label="Square$19"/> </tuple>
-   <tuple> <atom label="Square$5"/> <atom label="Square$20"/> </tuple>
+   <tuple> <atom label="Square$4"/> <atom label="Square$0"/> </tuple>
+   <tuple> <atom label="Square$4"/> <atom label="Square$16"/> </tuple>
+   <tuple> <atom label="Square$5"/> <atom label="Square$10"/> </tuple>
+   <tuple> <atom label="Square$5"/> <atom label="Square$14"/> </tuple>
+   <tuple> <atom label="Square$6"/> <atom label="Square$1"/> </tuple>
    <tuple> <atom label="Square$6"/> <atom label="Square$11"/> </tuple>
-   <tuple> <atom label="Square$6"/> <atom label="Square$12"/> </tuple>
-   <tuple> <atom label="Square$7"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Square$7"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Square$7"/> <atom label="Square$15"/> </tuple>
-   <tuple> <atom label="Square$7"/> <atom label="Square$16"/> </tuple>
-   <tuple> <atom label="Square$7"/> <atom label="Square$18"/> </tuple>
-   <tuple> <atom label="Square$7"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Square$7"/> <atom label="Square$22"/> </tuple>
-   <tuple> <atom label="Square$7"/> <atom label="Square$23"/> </tuple>
-   <tuple> <atom label="Square$8"/> <atom label="Square$6"/> </tuple>
-   <tuple> <atom label="Square$8"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Square$8"/> <atom label="Square$23"/> </tuple>
+   <tuple> <atom label="Square$7"/> <atom label="Square$3"/> </tuple>
+   <tuple> <atom label="Square$7"/> <atom label="Square$17"/> </tuple>
+   <tuple> <atom label="Square$8"/> <atom label="Square$13"/> </tuple>
+   <tuple> <atom label="Square$8"/> <atom label="Square$20"/> </tuple>
    <tuple> <atom label="Square$9"/> <atom label="Square$12"/> </tuple>
-   <tuple> <atom label="Square$9"/> <atom label="Square$14"/> </tuple>
-   <tuple> <atom label="Square$10"/> <atom label="Square$11"/> </tuple>
-   <tuple> <atom label="Square$11"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Square$11"/> <atom label="Square$19"/> </tuple>
-   <tuple> <atom label="Square$11"/> <atom label="Square$21"/> </tuple>
-   <tuple> <atom label="Square$12"/> <atom label="Square$4"/> </tuple>
-   <tuple> <atom label="Square$12"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Square$13"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Square$13"/> <atom label="Square$16"/> </tuple>
-   <tuple> <atom label="Square$13"/> <atom label="Square$17"/> </tuple>
-   <tuple> <atom label="Square$13"/> <atom label="Square$21"/> </tuple>
-   <tuple> <atom label="Square$13"/> <atom label="Square$23"/> </tuple>
-   <tuple> <atom label="Square$14"/> <atom label="Square$19"/> </tuple>
-   <tuple> <atom label="Square$14"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Square$15"/> <atom label="Square$3"/> </tuple>
-   <tuple> <atom label="Square$15"/> <atom label="Square$4"/> </tuple>
-   <tuple> <atom label="Square$15"/> <atom label="Square$5"/> </tuple>
-   <tuple> <atom label="Square$15"/> <atom label="Square$6"/> </tuple>
-   <tuple> <atom label="Square$15"/> <atom label="Square$7"/> </tuple>
-   <tuple> <atom label="Square$15"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Square$15"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Square$15"/> <atom label="Square$20"/> </tuple>
-   <tuple> <atom label="Square$17"/> <atom label="Square$1"/> </tuple>
-   <tuple> <atom label="Square$17"/> <atom label="Square$4"/> </tuple>
-   <tuple> <atom label="Square$17"/> <atom label="Square$5"/> </tuple>
-   <tuple> <atom label="Square$17"/> <atom label="Square$8"/> </tuple>
-   <tuple> <atom label="Square$17"/> <atom label="Square$10"/> </tuple>
-   <tuple> <atom label="Square$17"/> <atom label="Square$11"/> </tuple>
-   <tuple> <atom label="Square$17"/> <atom label="Square$12"/> </tuple>
+   <tuple> <atom label="Square$9"/> <atom label="Square$21"/> </tuple>
+   <tuple> <atom label="Square$10"/> <atom label="Square$5"/> </tuple>
+   <tuple> <atom label="Square$10"/> <atom label="Square$14"/> </tuple>
+   <tuple> <atom label="Square$11"/> <atom label="Square$1"/> </tuple>
+   <tuple> <atom label="Square$11"/> <atom label="Square$6"/> </tuple>
+   <tuple> <atom label="Square$12"/> <atom label="Square$9"/> </tuple>
+   <tuple> <atom label="Square$12"/> <atom label="Square$21"/> </tuple>
+   <tuple> <atom label="Square$13"/> <atom label="Square$8"/> </tuple>
+   <tuple> <atom label="Square$13"/> <atom label="Square$20"/> </tuple>
+   <tuple> <atom label="Square$14"/> <atom label="Square$5"/> </tuple>
+   <tuple> <atom label="Square$14"/> <atom label="Square$10"/> </tuple>
+   <tuple> <atom label="Square$15"/> <atom label="Square$19"/> </tuple>
+   <tuple> <atom label="Square$15"/> <atom label="Square$23"/> </tuple>
+   <tuple> <atom label="Square$16"/> <atom label="Square$0"/> </tuple>
+   <tuple> <atom label="Square$16"/> <atom label="Square$4"/> </tuple>
+   <tuple> <atom label="Square$17"/> <atom label="Square$3"/> </tuple>
+   <tuple> <atom label="Square$17"/> <atom label="Square$7"/> </tuple>
    <tuple> <atom label="Square$18"/> <atom label="Square$2"/> </tuple>
-   <tuple> <atom label="Square$18"/> <atom label="Square$3"/> </tuple>
-   <tuple> <atom label="Square$18"/> <atom label="Square$5"/> </tuple>
-   <tuple> <atom label="Square$18"/> <atom label="Square$7"/> </tuple>
-   <tuple> <atom label="Square$18"/> <atom label="Square$9"/> </tuple>
-   <tuple> <atom label="Square$18"/> <atom label="Square$16"/> </tuple>
-   <tuple> <atom label="Square$19"/> <atom label="Square$7"/> </tuple>
-   <tuple> <atom label="Square$19"/> <atom label="Square$8"/> </tuple>
+   <tuple> <atom label="Square$18"/> <atom label="Square$22"/> </tuple>
+   <tuple> <atom label="Square$19"/> <atom label="Square$15"/> </tuple>
+   <tuple> <atom label="Square$19"/> <atom label="Square$23"/> </tuple>
+   <tuple> <atom label="Square$20"/> <atom label="Square$8"/> </tuple>
+   <tuple> <atom label="Square$20"/> <atom label="Square$13"/> </tuple>
+   <tuple> <atom label="Square$21"/> <atom label="Square$9"/> </tuple>
+   <tuple> <atom label="Square$21"/> <atom label="Square$12"/> </tuple>
+   <tuple> <atom label="Square$22"/> <atom label="Square$2"/> </tuple>
+   <tuple> <atom label="Square$22"/> <atom label="Square$18"/> </tuple>
+   <tuple> <atom label="Square$23"/> <atom label="Square$15"/> </tuple>
+   <tuple> <atom label="Square$23"/> <atom label="Square$19"/> </tuple>
    <types> <type ID="8"/> <type ID="8"/> </types>
+</field>
+
+<field label="corner" ID="17" parentID="8">
+   <tuple> <atom label="Square$0"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$1"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$2"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$3"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$4"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$5"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$6"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$7"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$8"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$9"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$10"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$11"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$12"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$13"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$14"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$15"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$16"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$17"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$18"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$19"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$20"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$21"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$22"/> <atom label="boolean/True$0"/> </tuple>
+   <tuple> <atom label="Square$23"/> <atom label="boolean/True$0"/> </tuple>
+   <types> <type ID="8"/> <type ID="15"/> </types>
 </field>
 
 <sig label="this/Colour" ID="9" parentID="2">
@@ -388,29 +341,28 @@
    <atom label="Colour$5"/>
 </sig>
 
-<sig label="ordering/Ord" ID="15" parentID="2" one="yes" private="yes">
+<sig label="ordering/Ord" ID="18" parentID="2" one="yes" private="yes">
    <atom label="ordering/Ord$0"/>
 </sig>
 
-<field label="First" ID="16" parentID="15" private="yes">
+<field label="First" ID="19" parentID="18" private="yes">
    <tuple> <atom label="ordering/Ord$0"/> <atom label="Cube$0"/> </tuple>
-   <types> <type ID="15"/> <type ID="4"/> </types>
+   <types> <type ID="18"/> <type ID="4"/> </types>
 </field>
 
-<field label="Next" ID="17" parentID="15" private="yes">
-   <tuple> <atom label="ordering/Ord$0"/> <atom label="Cube$0"/> <atom label="Cube$1"/> </tuple>
-   <types> <type ID="15"/> <type ID="4"/> <type ID="4"/> </types>
+<field label="Next" ID="20" parentID="18" private="yes">
+   <types> <type ID="18"/> <type ID="4"/> <type ID="4"/> </types>
 </field>
 
-<sig label="boolean/True" ID="18" parentID="19" one="yes">
+<sig label="boolean/True" ID="21" parentID="15" one="yes">
    <atom label="boolean/True$0"/>
 </sig>
 
-<sig label="boolean/False" ID="20" parentID="19" one="yes">
+<sig label="boolean/False" ID="22" parentID="15" one="yes">
    <atom label="boolean/False$0"/>
 </sig>
 
-<sig label="boolean/Bool" ID="19" parentID="2" abstract="yes">
+<sig label="boolean/Bool" ID="15" parentID="2" abstract="yes">
 </sig>
 
 <sig label="univ" ID="2" builtin="yes">
