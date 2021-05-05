@@ -9,7 +9,7 @@ const App: FC = () => {
    const [selectedCube, setSelectedCube] = useState<number>(0);
 
    useEffect(() => {
-      fetch('/solution.xml').then(r => r.text()).then(text => {
+      fetch('/alloy-playground/solution.xml').then(r => r.text()).then(text => {
          setCubes(getCubeSolution(text));
          setLoading(false);
       });
