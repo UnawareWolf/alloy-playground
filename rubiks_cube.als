@@ -13,6 +13,7 @@ sig Cube {
     all c1, c2: Colour | #{colours :> c1} = #{colours :> c2}
     all s: Square | one s.colours
     Face in faces.elems
+    // faces.lastIdx instead of sub[#Face, 1]
     all disj f1, f2: faces.elems | add[faces.indsOf[f1], faces.indsOf[f2]] = sub[#Face, 1] <=>
         f1.neighbours = f2.neighbours
 }
@@ -23,7 +24,15 @@ sig Face {
     isX, isY, isZ: Bool
 } {
     #neighbours = 4
-    all f: neighbours | this in f.@neighbours and this != f
+    all f: neighbours | this in f.@neighbours and this != f and
+        // neighbours can't have same coordinates
+        // maybe put this in band, all faces in a band must have
+        // one coordinate that is the same as all the others?
+        not (isX = f.@isX and
+        isY = f.@isY and isZ = f.@isZ)
+    // opposite squares have the same coordinates
+    // some f: Face - neighbours |
+    //     isX = f.@isX and isY = f.@isY and isZ = f.@isZ
     #{s: lines.squares} = mul[div[#lines, 2], div[#lines, 2]]
     all l: lines | some c: Cube | l.faceNo = c.faces.idxOf[this]
     no disj l1, l2: lines | l1.lx = l2.lx and
