@@ -6,6 +6,7 @@ sig Coord in Int {} {
 }
 
 sig Cube {
+    // get rid of faces relation? or move out to separate sig?
     faces: seq Face,
     colours: Square -> one Colour
 } {
@@ -70,10 +71,10 @@ fact equalCoordinates {
     #sy = #sz
 }
 
-// fact sharedSquares {
-//     all disj l1, l2 : Line |
-//         #{l1.squares & l2.squares} <= 1
-// }
+fact sharedSquares {
+    all disj l1, l2 : Line |
+        #{l1.squares & l2.squares} <= 1
+}
 
 pred squareOnLine[l: Line, s: Square] {
     s in l.squares
@@ -128,8 +129,6 @@ pred nextFaceIdx[currentIdx, focusIdx, nextIdx: Int] {
 pred correspondingSquare[s1A, s1B, s2A, s2B: Coord] {
     some s1A implies (s1A = s2B)
     else (some s1B and some s2A and s1B != s2A)
-    // #{s1A & s2B} = 1 or
-    // #{s1B + s2A} = 2
 }
 
 pred mapLines[c, c': Cube, l1, l2: Line] {
@@ -148,25 +147,6 @@ pred lineParrallelToFace[f: Face, l: Line] {
     else f.isZ = False and some l.lz
 }
 
-// pred doTwist[c, c': Cube, faceIdx: Int, l: Line] {
-//     lineParrallelToFace[c.faces[faceIdx], l]
-//     let connectedLines = {lCon: Line | linesConnected[l, lCon]} |
-//     all l1: connectedLines | some l2: connectedLines - l1 |
-//         (nextFaceIdx[l1.faceNo, faceIdx, l2.faceNo] and
-//         mapLines[c, c', l1, l2]) or
-//         (nextFaceIdx[l2.faceNo, faceIdx, l1.faceNo] and
-//         mapLines[c, c', l1, l2])
-// }
-
-// pred doTwist[c, c': Cube, faceIdx: Int, l: Line] {
-//     lineParrallelToFace[c.faces[faceIdx], l]
-//     all l1: Line | some l2: Line - l1 |
-//         linesConnected[l, l1] implies
-//             (linesConnected[l, l2] and
-//             ((nextFaceIdx[l1.faceNo, faceIdx, l2.faceNo] and mapLines[c, c', l1, l2]) or
-//             (nextFaceIdx[l2.faceNo, faceIdx, l1.faceNo] and mapLines[c, c', l2, l1])))
-// }
-
 pred squareInBand[l: Line, s: Square] {
     some l.lx implies s.sx = l.lx
     some l.ly implies s.sy = l.ly
@@ -179,27 +159,12 @@ pred doTwist[c, c': Cube, faceIdx: Int, l: Line] {
         (linesConnected[l, l1] and
         linesConnected[l, l2] and
         nextFaceIdx[l1.faceNo, faceIdx, l2.faceNo]) implies
+            // l1, l2?
             mapLines[c, c', l2, l1]
     all s: Square |
         not squareInBand[l, s] implies
-        // (s.sx != l.lx and s.sy != l.ly and s.sz != l.lz) implies
             c'.colours[s] = c.colours[s]
-    // all l1: Line, s: l1.squares |
-    //     not linesConnected[l, l1] implies
-    //         c'.colours[s] = c.colours[s]
 }
-
-// pred doTwist[c, c': Cube, faceIdx: Int, l: Line] {
-//     lineParrallelToFace[c.faces[faceIdx], l]
-//     all l1: Line |
-//         linesConnected[l, l1] implies
-//             (some l2: Line | linesConnected[l1, l2] and
-//                 (nextFaceIdx[l1.faceNo, faceIdx, l2.faceNo] implies
-//                     mapLines[c, c', l1, l2]
-//                 else nextFaceIdx[l2.faceNo, faceIdx, l1.faceNo] and
-//                     mapLines[c, c', l2, l1]))
-//         else c'.colours[l1.squares] = c.colours[l1.squares]
-// }
 
 pred solved[c: Cube] {
     all f: c.faces.elems | #{col: Colour | some s: Square | s in f.lines.squares and
