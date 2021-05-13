@@ -55,7 +55,7 @@ sig Square {
 } {
     #{squares :> this} = 2
 
-    #{sx + sy + sz} = 2
+    #{sx + sy + sz} <= 2
 }
 
 sig Colour {}
@@ -66,7 +66,14 @@ fact equalCoordinates {
     #{lx :> 0} = #{lx :> 1}
     #{ly :> 0} = #{ly :> 1}
     #{lz :> 0} = #{lz :> 1}
+    #sx = #sy
+    #sy = #sz
 }
+
+// fact sharedSquares {
+//     all disj l1, l2 : Line |
+//         #{l1.squares & l2.squares} <= 1
+// }
 
 pred squareOnLine[l: Line, s: Square] {
     s in l.squares
