@@ -28,6 +28,12 @@ interface SquareProps {
 export const SquareFC: FC<SquareProps> = ({ square }) => {
    return (
       <div className={'square' + square.id +
-         ' square c' + square.colour.toString()} />
+         ' square c' + square.colour.toString()}>
+         {/* <div id='squareCoords'>
+            <div>{!Number.isNaN(square.x) && 'x' + square.x}</div>
+            <div>{!Number.isNaN(square.y) && 'y' + square.y}</div>
+            <div>{!Number.isNaN(square.z) && 'z' + square.z}</div>
+         </div> */}
+      </div>
    );
 }

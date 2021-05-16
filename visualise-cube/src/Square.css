@@ -1,3 +1,8 @@
+#squareCoords {
+    display: grid;
+    place-content: center;
+}
+
 div.square.c0 {
     background-color: #ffffff;
 }

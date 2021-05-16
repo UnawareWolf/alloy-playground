@@ -16,6 +16,10 @@ sig Cube {
     // faces.lastIdx instead of sub[#Face, 1]
     all disj f1, f2: faces.elems | add[faces.indsOf[f1], faces.indsOf[f2]] = sub[#Face, 1] <=>
         f1.neighbours = f2.neighbours
+    all faceIdx: faces.inds |
+        faceIdx in 0 + 5 implies (faces[faceIdx].isX = True and faces[faceIdx].isZ = True)
+        else faceIdx in 1 + 4 implies (faces[faceIdx].isX = True and faces[faceIdx].isY = True)
+        else faceIdx in 2 + 3 implies (faces[faceIdx].isY = True and faces[faceIdx].isZ = True)
 }
 
 sig Face {
@@ -99,9 +103,9 @@ pred cube {
 
 pred twoByTwo {
     all f: Face | #f.lines = 4 and
-        #{f.lines <: lx} in {0 + 2} and
-        #{f.lines <: ly} in {0 + 2} and
-        #{f.lines <: lz} in {0 + 2}
+        #{f.lines <: lx} in 0 + 2 and
+        #{f.lines <: ly} in 0 + 2 and
+        #{f.lines <: lz} in 0 + 2
     all l: Line | #l.squares = 2
     #lx = 8
     #sx = 16

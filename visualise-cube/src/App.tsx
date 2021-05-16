@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { Cube, CubeFC, getDefaultCube } from './Cube';
+import { Cube3DWrapper } from './Cube3D';
 import { getCubeSolution } from './Solution';
 import './App.css';
 
@@ -25,6 +26,7 @@ const App: FC = () => {
                {<button className={selectedCube < cubes.length - 1 ? '' : 'hide'} onClick={() => setSelectedCube(selectedCube + 1)}>{'>'}</button>}
             </div>
          }
+         {/* {!loading && <Cube3DWrapper />} */}
          {!loading && <CubeFC cube={cubes[selectedCube]} />}
       </div>
    );
