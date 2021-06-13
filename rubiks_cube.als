@@ -1,4 +1,9 @@
 open util/boolean
+// open util/ordering[Cube]
+
+// one sig Consts {
+//     width: Int
+// }
 
 sig Coord in Int {} {
     this >= 0
@@ -109,6 +114,8 @@ pred twoByTwo {
     all l: Line | #l.squares = 2
     #lx = 8
     #sx = 16
+
+    // Consts.width = 2
 }
 
 pred linesConnected[l1, l2: Line] {
@@ -121,8 +128,12 @@ sig Band {
     faceSeq: seq Int
 } {
     #faceSeq = 4
-    (faceSeq[0] = 0 and faceSeq[1] = 1 and faceSeq[2] = 5 and faceSeq[3] = 4) or
-    (faceSeq[0] = 0 and faceSeq[1] = 2 and faceSeq[2] = 5 and faceSeq[3] = 3) or
+    // (faceSeq[0] = 0 and faceSeq[1] = 1 and faceSeq[2] = 5 and faceSeq[3] = 4) or
+    // (faceSeq[0] = 0 and faceSeq[1] = 2 and faceSeq[2] = 5 and faceSeq[3] = 3) or
+    // (faceSeq[0] = 1 and faceSeq[1] = 2 and faceSeq[2] = 4 and faceSeq[3] = 3)
+
+    (faceSeq[0] = 0 and faceSeq[1] = 4 and faceSeq[2] = 5 and faceSeq[3] = 1) or
+    (faceSeq[0] = 0 and faceSeq[1] = 3 and faceSeq[2] = 5 and faceSeq[3] = 2) or
     (faceSeq[0] = 1 and faceSeq[1] = 2 and faceSeq[2] = 4 and faceSeq[3] = 3)
 }
 fact threeBands {
@@ -144,14 +155,32 @@ pred correspondingSquare[s1A, s1B, s2A, s2B: Coord] {
     else (some s1B and some s2A and s1B != s2A)
 }
 
+// pred faceRotationMapSquares[s1, s2: Square] {
+//     some s3, s4: Square |
+// }
+
+pred mapSquares[c, c': Cube, l: Line, s1, s2: Square] {
+    // (some l.lx and correspondingSquare[s1.sz, s1.sy, s2.sz, s2.sy]) implies
+    //     c'.colours[s2] = c.colours[s1]
+    // else (some l.ly and correspondingSquare[s1.sx, s1.sz, s2.sx, s2.sz]) implies
+    //     c'.colours[s2] = c.colours[s1]
+    // else (some l.lz and correspondingSquare[s1.sy, s1.sx, s2.sy, s2.sx]) and
+    //     c'.colours[s2] = c.colours[s1]
+
+    (some l.lx and correspondingSquare[s1.sy, s1.sz, s2.sy, s2.sz]) implies
+        c'.colours[s2] = c.colours[s1]
+    else (some l.ly and correspondingSquare[s1.sx, s1.sz, s2.sx, s2.sz]) implies
+        c'.colours[s2] = c.colours[s1]
+    else (some l.lz and correspondingSquare[s1.sx, s1.sy, s2.sx, s2.sy]) and
+        c'.colours[s2] = c.colours[s1]
+}
+
 pred mapLines[c, c': Cube, l1, l2: Line] {
     all s1: l1.squares | some s2: l2.squares |
-        (some l1.lx and correspondingSquare[s1.sy, s1.sz, s2.sy, s2.sz]) implies
-            c'.colours[s2] = c.colours[s1]
-        else (some l1.ly and correspondingSquare[s1.sx, s1.sz, s2.sx, s2.sz]) implies
-            c'.colours[s2] = c.colours[s1]
-        else (some l1.lz and correspondingSquare[s1.sx, s1.sy, s2.sx, s2.sy]) and
-            c'.colours[s2] = c.colours[s1]
+        mapSquares[c, c', l1, s1, s2]
+        // and
+        // (edgeLine[l1] implies some s3, s4: Square |
+
 }
 
 pred lineParrallelToFace[f: Face, l: Line] {
@@ -166,6 +195,10 @@ pred squareInBand[l: Line, s: Square] {
     some l.lz implies s.sz = l.lz
 }
 
+// pred edgeLine[l: Line] {
+//     l.lx + l.ly + l.lz in 0 + 1
+// }
+
 pred doTwist[c, c': Cube, faceIdx: Int, l: Line] {
     lineParrallelToFace[c.faces[faceIdx], l]
     all disj l1, l2: Line |
@@ -174,6 +207,12 @@ pred doTwist[c, c': Cube, faceIdx: Int, l: Line] {
         nextFaceIdx[l1.faceNo, faceIdx, l2.faceNo]) implies
             // l1, l2?
             mapLines[c, c', l2, l1]
+    
+    // all l1: Line | (linesConnected[l1, l] and edgeLine[l]) implies
+
+    // edgeLine[l] implies all s: Square | some i: Int |
+
+
     all s: Square |
         not squareInBand[l, s] implies
             c'.colours[s] = c.colours[s]
@@ -187,6 +226,9 @@ pred solved[c: Cube] {
 pred solve {
     cube
     twoByTwo
+    // all c: Cube | some faceIdx: Int, l: Line |
+    //     c != last implies doTwist[c, c.next, faceIdx, l]
+    // solved[last]
     some disj c1, c2: Cube, faceIdx: Int, l: Line | doTwist[c1, c2, faceIdx, l] and
         solved[c2]
 }
